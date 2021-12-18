@@ -10,8 +10,8 @@ class ErrorPage extends Page {
         '404': 'Error! The page is not found'
     };
 
-    constructor(id: string, errorType: ErrorType | string) {
-        super(id);
+    constructor(id: string, className: string, errorType: ErrorType | string) {
+        super(id, className);
         this.errorType = errorType;
     }
     render() {

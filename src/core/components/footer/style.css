@@ -1,0 +1,25 @@
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #121c1e;
+    color: aliceblue;
+    font-size: 18px;
+}
+.footer-container div {
+    display: flex;
+    justify-content: space-evenly;
+}
+.footer-container div p {
+    margin: 0 10px;
+}
+.logo-footer {
+    height: 50px;
+    width: 100px;
+}
+a {
+    color: rgb(255, 255, 255);
+}
+.footer-container img {
+    background-color: rgba(255, 255, 255, 0.363);
+}

@@ -1,5 +1,6 @@
 import Component from "../../temlpates/components";
 import { PageIds } from "../../../pages/app"
+import './style.css'
 
 const Button = [
     {
@@ -24,6 +25,7 @@ class Header extends Component {
 
     renderPageButtons() {
         const pageButtons = document.createElement('div');
+        pageButtons.className = "header-container";
         Button.forEach(button => {
             const ButtonHTML = document.createElement('a');
             ButtonHTML.href = `#${button.id}`;

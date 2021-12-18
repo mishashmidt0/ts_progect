@@ -1,4 +1,5 @@
 import Page from "../../core/temlpates/page";
+import "./style.css"
 
 class MainPage extends Page {
 
@@ -6,8 +7,8 @@ class MainPage extends Page {
         MaintTitle: 'Main Pages'
     };
 
-    constructor(id: string) {
-        super(id)
+    constructor(id: string, className: string) {
+        super(id, className)
     }
 
     render() {

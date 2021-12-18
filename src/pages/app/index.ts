@@ -4,6 +4,7 @@ import SettingPage from "../settings";
 import StatisticPage from "../statistics";
 import Header from "../../core/components/header";
 import ErrorPage, { ErrorType } from "../error";
+import Footer from "../../core/components/footer";
 
 export const enum PageIds {
     MainPage = 'main-page',
@@ -14,44 +15,51 @@ export const enum PageIds {
 
 class App {
     private static container: HTMLElement = document.body;
+    private static mainContainer: HTMLElement = document.querySelector('main') as HTMLElement;
     private initialPage: MainPage;
     private header: Header;
+    private footer: Footer;
     private static defaultPageId: string = 'current-page';
 
-    static renderNewPage(idPage: string) {
+    static renderNewPage(idPage: string, className: string) {
         const currentPageHTML = document.querySelector(`#${App.defaultPageId}`)
         if (currentPageHTML) currentPageHTML.remove();
         let page: Page | null = null;
 
         if (idPage === PageIds.MainPage) {
-            page = new MainPage(idPage);
+            page = new MainPage(idPage, className);
         } else if (idPage === PageIds.SettingPage) {
-            page = new SettingPage(idPage);
+            page = new SettingPage(idPage, className);
         } else if (idPage === PageIds.StatisticPage) {
-            page = new StatisticPage(idPage);
-        } else { page = new ErrorPage(idPage, ErrorType.Error_404); }
+            page = new StatisticPage(idPage, className);
+        } else { page = new ErrorPage(idPage, className, ErrorType.Error_404); }
 
         if (page) {
             const pageHTML = page.render();
             pageHTML.id = App.defaultPageId;
-            App.container.append(pageHTML);
+            App.mainContainer.prepend(pageHTML);
         }
     }
 
     private enableRouteChange() {
         window.addEventListener('hashchange', () => {
             const hach = window.location.hash.slice(1);
-            App.renderNewPage(hach);
+            const clName = hach.slice(0, -5);
+            App.renderNewPage(hach, clName);
+
         })
     }
 
     constructor() {
-        this.initialPage = new MainPage('main-page'); //присваиваем id main-page
-        this.header = new Header('header', 'header-container')
+        this.initialPage = new MainPage('main-page', 'main');
+        this.header = new Header('header', 'header')
+        this.footer = new Footer('footer', 'footer')
     }
     run() {
-        App.container.append(this.header.render())
-        App.renderNewPage('main-page');
+        App.renderNewPage('main-page', 'main');
+        App.container.prepend(this.header.render());
+        App.container.append(this.footer.render());
+
         this.enableRouteChange();
     }
 };

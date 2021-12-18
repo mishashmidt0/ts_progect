@@ -6,8 +6,8 @@ class SettingPage extends Page {
         MainTitle: 'Setting Page',
     };
 
-    constructor(id: string) {
-        super(id)
+    constructor(id: string, className: string) {
+        super(id, className)
     }
     render() {
         const title = this.createHeaderTitle(SettingPage.TextObjsct.MainTitle)
