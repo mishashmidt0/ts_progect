@@ -30,6 +30,11 @@ abstract class Page {
         el.innerText = `${description}: ${text}`
         return el;
     }
+    protected createText(text: string) {
+        const el = document.createElement('p');
+        el.innerText = `${text}`
+        return el;
+    }
     protected createButton(filterName: string) {
         const button = document.createElement('button');
         button.dataset.filter = filterName;
