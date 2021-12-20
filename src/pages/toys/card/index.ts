@@ -3,7 +3,7 @@ import "./style.css";
 import data from '../../../assets/data'
 
 class ToyseContainer extends Page {
-    protected toysconteiner: HTMLElement = this.createDiv('card');
+    protected toysconteiner: HTMLElement = this.createDiv('card-container');
     protected data;
     static TextObjsct = {
 
@@ -16,7 +16,23 @@ class ToyseContainer extends Page {
     renderToyElement() {
         const toy = this.createDiv('toy');
         this.data.forEach((el: any) => {
-            console.log(el.num)
+            const container = this.createDiv("card");
+            const h2 = this.createCardHeader(el.name);
+            const img = this.createImg(el.num);
+
+            const description = this.createDiv("card-description");
+            const count = this.createDescription("Количество", el.count);
+            const year = this.createDescription("Год покупки", el.year);
+            const shape = this.createDescription("Форма", el.shape);
+            const color = this.createDescription("Цвет", el.color);
+            const size = this.createDescription("Размер", el.size);
+            const favorite = this.createDescription("Любимая", el.favorite);
+            description.append(count, year, shape, color, size, favorite);
+
+            const ribbon = this.createDiv("ribbon");
+
+            container.append(h2, img, description, ribbon);
+            this.toysconteiner.append(container)
         })
     }
 
