@@ -101,15 +101,5 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-image: url("./assets/bg.jpg");
 }
-
-.header-container div {
-    display: flex;
-    justify-content: space-between;
-}
-/* header {
-    height: 10vh;
-}
-main {
-    height: 80vh;
-} */

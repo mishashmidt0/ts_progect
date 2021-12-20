@@ -5,15 +5,15 @@ import './style.css'
 const Button = [
     {
         id: PageIds.MainPage,
-        text: 'Main Page'
+        text: 'ГЛАВНАЯ'
     },
     {
-        id: PageIds.SettingPage,
-        text: 'Setting Page'
+        id: PageIds.Toys,
+        text: 'ИГРУШКИ'
     },
     {
-        id: PageIds.StatisticPage,
-        text: 'Statistic Page'
+        id: PageIds.ChristmasTree,
+        text: 'ЁЛКА'
     }
 ]
 

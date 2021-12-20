@@ -4,7 +4,10 @@ import "./style.css"
 class MainPage extends Page {
 
     static TextObject = {
-        MaintTitle: 'Main Pages'
+        MaintTitle: `Новогодняя игра 
+        «Наряди ёлку»`,
+        Start: 'Начать',
+        Link: '#toys-page',
     };
 
     constructor(id: string, className: string) {
@@ -13,7 +16,8 @@ class MainPage extends Page {
 
     render() {
         const title = this.createHeaderTitle(MainPage.TextObject.MaintTitle);
-        this.container.append(title);
+        const link = this.createLink(MainPage.TextObject.Start, MainPage.TextObject.Link)
+        this.container.append(title, link);
         return this.container;
     }
 }

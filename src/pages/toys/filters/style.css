@@ -1,0 +1,12 @@
+.filters {
+    background-color: rgba(31, 112, 127, 0.3);
+    backdrop-filter: blur(6px);
+    border-radius: 10px;
+    width: 480px;
+    height: 200px;
+    margin: 10px;
+}
+.filter-title {
+    padding: 10px;
+    font-size: 24px;
+}

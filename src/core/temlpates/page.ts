@@ -12,6 +12,22 @@ abstract class Page {
         headerTitle.innerHTML = text;
         return headerTitle;
     }
+    protected createLink(text: string, href: string) {
+        const link = document.createElement('a');
+        link.innerHTML = text;
+        link.href = href;
+        return link;
+    }
+    protected createDiv(className: string) {
+        const div = document.createElement('div');
+        div.className = className;
+        return div;
+    }
+    protected createButton(filterName: string) {
+        const button = document.createElement('button');
+        button.dataset.filter = filterName;
+        return button;
+    }
     render() {
         return this.container;
     }

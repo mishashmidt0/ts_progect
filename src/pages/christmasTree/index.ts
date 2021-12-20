@@ -1,6 +1,8 @@
 import Page from "../../core/temlpates/page";
+import "./style.css";
 
-class StatisticPage extends Page {
+
+class ChristmasTree extends Page {
     static TextObjsct = {
         MainText: 'Statistic Page'
     };
@@ -8,10 +10,10 @@ class StatisticPage extends Page {
         super(id, className)
     }
     render() {
-        const title = this.createHeaderTitle(StatisticPage.TextObjsct.MainText)
+        const title = this.createHeaderTitle(ChristmasTree.TextObjsct.MainText)
         this.container.append(title)
         return this.container;
     }
 }
 
-export default StatisticPage;
+export default ChristmasTree;

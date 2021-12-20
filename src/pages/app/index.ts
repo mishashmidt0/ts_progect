@@ -1,19 +1,21 @@
 import Page from "../../core/temlpates/page";
 import MainPage from "../main";
-import SettingPage from "../settings";
-import StatisticPage from "../statistics";
+import Toys from "../toys";
+import ChristmasTree from "../christmasTree";
 import Header from "../../core/components/header";
 import ErrorPage, { ErrorType } from "../error";
 import Footer from "../../core/components/footer";
 
 export const enum PageIds {
     MainPage = 'main-page',
-    SettingPage = 'satting-page',
-    StatisticPage = 'statistics-page',
+    Toys = 'toys-page',
+    ChristmasTree = 'christmasTree-page',
 
 }
 
 class App {
+    private static hach: string = window.location.hash.slice(1);
+    private static clAp: string = App.hach.slice(0, -5);
     private static container: HTMLElement = document.body;
     private static mainContainer: HTMLElement = document.querySelector('main') as HTMLElement;
     private initialPage: MainPage;
@@ -28,10 +30,10 @@ class App {
 
         if (idPage === PageIds.MainPage) {
             page = new MainPage(idPage, className);
-        } else if (idPage === PageIds.SettingPage) {
-            page = new SettingPage(idPage, className);
-        } else if (idPage === PageIds.StatisticPage) {
-            page = new StatisticPage(idPage, className);
+        } else if (idPage === PageIds.Toys) {
+            page = new Toys(idPage, className);
+        } else if (idPage === PageIds.ChristmasTree) {
+            page = new ChristmasTree(idPage, className);
         } else { page = new ErrorPage(idPage, className, ErrorType.Error_404); }
 
         if (page) {
@@ -56,7 +58,7 @@ class App {
         this.footer = new Footer('footer', 'footer')
     }
     run() {
-        App.renderNewPage('main-page', 'main');
+        App.renderNewPage(App.hach, App.clAp);
         App.container.prepend(this.header.render());
         App.container.append(this.footer.render());
 
