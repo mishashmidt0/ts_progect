@@ -35,9 +35,10 @@ abstract class Page {
         el.innerText = `${text}`
         return el;
     }
-    protected createButton(filterName: string) {
+    protected createButton(filterName: string, className: string) {
         const button = document.createElement('button');
         button.dataset.filter = filterName;
+        button.className = className;
         return button;
     }
     protected createCardHeader(text: string) {

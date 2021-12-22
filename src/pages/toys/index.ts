@@ -16,12 +16,16 @@ class Toyse extends Page {
         this.toyseContainer = new ToyseContainer('toys-id', 'toys-container');
     }
 
+    renderFilters() {
+
+    }
+
     render() {
-        this.controls.append(this.filters.render())
         this.toys.append(this.toyseContainer.render())
 
 
         this.container.append(this.controls, this.toys)
+        this.controls.append(this.filters.render())
         return this.container;
     }
 }

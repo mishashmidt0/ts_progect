@@ -1,20 +1,23 @@
 import Page from "../../../core/temlpates/page";
 import "./style.css";
+import Controls from "./logics";
 
 const filterData = {
     shape: ['шар', 'колокольчик', 'шишка', 'снежинка', 'фигурка'],
-    color: ['белый', 'желтый', 'красный', 'синий', 'зеленый'],
+    color: ['белый', 'желтый', 'красный', 'синий', 'зелёный'],
     size: ['большой', 'средний', 'малый']
 }
 class Filters extends Page {
     protected filters: HTMLElement = this.createDiv('filters');
+    protected controls: Controls;
 
     static TextObjsct = {
         title: 'Фильтры по назначению'
     };
 
     constructor(id: string, className: string) {
-        super(id, className)
+        super(id, className);
+        this.controls = new Controls;
     }
 
     renderControls() {
@@ -25,7 +28,7 @@ class Filters extends Page {
         const textShape = this.createText('Форма: ');
         shape.append(textShape);
         filterData.shape.forEach(el => {
-            const button = this.createButton(`${el}`)
+            const button = this.createButton(`${el}`, 'button-shape')
             shape.append(button);
         });
 
@@ -33,7 +36,7 @@ class Filters extends Page {
         const textColor = this.createText('Цвет: ');
         color.append(textColor);
         filterData.color.forEach(el => {
-            const button = this.createButton(`${el}`)
+            const button = this.createButton(`${el}`, 'button-color')
             color.append(button);
         });
 
@@ -42,12 +45,12 @@ class Filters extends Page {
         size.append(textSize);
 
         filterData.size.forEach(el => {
-            const button = this.createButton(`${el}`)
+            const button = this.createButton(`${el}`, 'button-size')
             size.append(button);
         });
         const like = this.createDiv('like');
         const textLike = this.createText('Только любимые: ');
-        const button = this.createButton(`likes`);
+        const button = this.createButton(`likes`, 'button-likes');
         button.className = "button-likes";
         like.append(textLike, button);
 
@@ -56,7 +59,7 @@ class Filters extends Page {
 
 
     render() {
-        this.renderControls()
+        this.renderControls();
         return this.filters;
     }
 }

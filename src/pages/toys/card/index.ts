@@ -1,21 +1,26 @@
 import Page from "../../../core/temlpates/page";
 import "./style.css";
 import data from '../../../assets/data'
+import newData from "../../..";
+
+
+console.log(newData)
 
 class ToyseContainer extends Page {
     protected toysconteiner: HTMLElement = this.createDiv('card-container');
-    protected data;
+
     static TextObjsct = {
 
     };
 
     constructor(id: string, className: string) {
         super(id, className)
-        this.data = data;
     }
-    renderToyElement() {
-        const toy = this.createDiv('toy');
-        this.data.forEach((el: any) => {
+
+
+    renderToyElement(data: any) {
+        data.forEach((el: any) => {
+
             const container = this.createDiv("card");
             const h2 = this.createCardHeader(el.name);
             const img = this.createImg(el.num);
@@ -37,7 +42,7 @@ class ToyseContainer extends Page {
     }
 
     render() {
-        this.renderToyElement()
+        this.renderToyElement(data)
         return this.toysconteiner;
     }
 }

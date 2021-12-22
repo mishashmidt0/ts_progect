@@ -65,5 +65,14 @@ class App {
         this.enableRouteChange();
     }
 };
-
+function filter() {
+    const button = document.querySelectorAll('.shape');
+    console.log(button)
+    button.forEach(el => {
+        el.addEventListener('click', () => {
+            console.log('123')
+        })
+    })
+}
+filter()
 export default App;
