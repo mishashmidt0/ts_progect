@@ -1,6 +1,6 @@
 import Page from "../../../core/temlpates/page";
 import "./style.css";
-import Controls from "./logics";
+
 
 const filterData = {
     shape: ['шар', 'колокольчик', 'шишка', 'снежинка', 'фигурка'],
@@ -9,7 +9,7 @@ const filterData = {
 }
 class Filters extends Page {
     protected filters: HTMLElement = this.createDiv('filters');
-    protected controls: Controls;
+
 
     static TextObjsct = {
         title: 'Фильтры по назначению'
@@ -17,7 +17,7 @@ class Filters extends Page {
 
     constructor(id: string, className: string) {
         super(id, className);
-        this.controls = new Controls;
+
     }
 
     renderControls() {
@@ -60,6 +60,7 @@ class Filters extends Page {
 
     render() {
         this.renderControls();
+
         return this.filters;
     }
 }

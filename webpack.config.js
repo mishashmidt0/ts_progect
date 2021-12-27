@@ -3,41 +3,41 @@ require('webpack');
 const path = require('path');
 
 module.exports = {
-    entry: './src/index.ts',
-    mode: 'development',
-    devServer: {
-        static: {
-            directory: path.join(__dirname, 'public'),
-        },
-        compress: true,
-        port: 9000,
+  entry: './src/index.ts',
+  mode: 'development',
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'public'),
     },
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js',
-    },
-    module: {
-        rules: [
-            { test: /\.txt$/, use: 'raw-loader' },
-            {
-                test: /\.tsx?$/,
-                use: 'ts-loader',
-                exclude: /node_modules/
-            },
-            {
-                test: /\.css$/i,
-                use: [
-                    {
-                        loader: 'style-loader',
-                        options: { injectType: 'singletonStyleTag' },
-                    },
-                    'css-loader',
-                ],
-            },
+    compress: true,
+    port: 9000,
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+  },
+  module: {
+    rules: [
+      { test: /\.txt$/, use: 'raw-loader' },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/i,
+        use: [
+          {
+            loader: 'style-loader',
+            options: { injectType: 'singletonStyleTag' },
+          },
+          'css-loader',
         ],
-    },
-    plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })],
-    resolve: {
-        extensions: [".tsx", ".ts", ".js"]
-    },
+      },
+    ],
+  },
+  plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })],
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
 };

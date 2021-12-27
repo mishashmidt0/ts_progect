@@ -1,4 +1,7 @@
-const data: any = [
+import { Toy } from "../typings/Toy";
+
+
+const data: Toy[] = [
     {
         num: '1',
         name: 'Большой шар с рисунком',

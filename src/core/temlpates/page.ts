@@ -20,7 +20,7 @@ abstract class Page {
     }
     protected createDiv(className: string) {
         const div = document.createElement('div');
-        div.className = className;
+        div.classList.add(className);
         return div;
     }
     protected createDescription(description: string, text: string | boolean) {

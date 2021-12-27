@@ -1,11 +1,10 @@
 main {
-    background-image: url("../../assets/bg.jpg");
     color: aliceblue;
-    background-attachment: fixed;
+
+    display: flex;
 }
 .main {
     width: 800px;
-    height: 70%;
     margin: auto;
     display: flex;
     flex-direction: column;

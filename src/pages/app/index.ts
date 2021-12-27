@@ -5,6 +5,8 @@ import ChristmasTree from "../christmasTree";
 import Header from "../../core/components/header";
 import ErrorPage, { ErrorType } from "../error";
 import Footer from "../../core/components/footer";
+import CreateFilter from "../toys/filters/logics";
+
 
 export const enum PageIds {
     MainPage = 'main-page',
@@ -22,6 +24,7 @@ class App {
     private header: Header;
     private footer: Footer;
     private static defaultPageId: string = 'current-page';
+    private createFilter: CreateFilter;
 
     static renderNewPage(idPage: string, className: string) {
         const currentPageHTML = document.querySelector(`#${App.defaultPageId}`)
@@ -56,23 +59,16 @@ class App {
         this.initialPage = new MainPage('main-page', 'main');
         this.header = new Header('header', 'header')
         this.footer = new Footer('footer', 'footer')
+        this.createFilter = new CreateFilter();
     }
     run() {
+
         App.renderNewPage(App.hach, App.clAp);
         App.container.prepend(this.header.render());
         App.container.append(this.footer.render());
-
         this.enableRouteChange();
+        return this.createFilter.button();
     }
 };
-function filter() {
-    const button = document.querySelectorAll('.shape');
-    console.log(button)
-    button.forEach(el => {
-        el.addEventListener('click', () => {
-            console.log('123')
-        })
-    })
-}
-filter()
+
 export default App;

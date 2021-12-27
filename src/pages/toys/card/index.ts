@@ -1,27 +1,38 @@
 import Page from "../../../core/temlpates/page";
 import "./style.css";
-import data from '../../../assets/data'
-import newData from "../../..";
+import data, { Shape } from '../../../assets/data'
+import CreateFilter from "../filters/logics";
 
+// add enum -size -color
 
-console.log(newData)
+export type Bell = {
+    num: string, //number
+    name: string,
+    count: string, //number
+    year: string,   //number
+    shape: Shape,
+    color: string,
+    size: string,
+    favorite: boolean,
+}
 
 class ToyseContainer extends Page {
     protected toysconteiner: HTMLElement = this.createDiv('card-container');
-
     static TextObjsct = {
 
     };
 
     constructor(id: string, className: string) {
-        super(id, className)
+        super(id, className);
+
     }
 
+    renderToyElement(data: Array<Bell>, filterBy: (item: Bell) => boolean) {
 
-    renderToyElement(data: any) {
-        data.forEach((el: any) => {
+        data.filter(filterBy).forEach((el) => {
 
             const container = this.createDiv("card");
+
             const h2 = this.createCardHeader(el.name);
             const img = this.createImg(el.num);
 
@@ -38,11 +49,11 @@ class ToyseContainer extends Page {
 
             container.append(h2, img, description, ribbon);
             this.toysconteiner.append(container)
+
         })
     }
-
     render() {
-        this.renderToyElement(data)
+        this.renderToyElement(data, (item) => item.shape === Shape.Snowflake)
         return this.toysconteiner;
     }
 }

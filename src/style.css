@@ -102,4 +102,5 @@ body {
     flex-direction: column;
     justify-content: space-between;
     background-image: url("./assets/bg.jpg");
+    background-attachment: fixed;
 }
