@@ -1,6 +1,5 @@
 import { Toy } from "../typings/Toy";
 
-
 const data: Toy[] = [
     {
         num: '1',

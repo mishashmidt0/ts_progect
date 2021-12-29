@@ -18,15 +18,11 @@ class Toyse extends Page {
         this.createFilter = new CreateFilter();
     }
 
-    renderFilters() {
-        console.log(123)
-    }
-
     render() {
         this.toys.append(this.toyseContainer.render())
         this.container.append(this.controls, this.toys)
         this.controls.append(this.filters.render())
-        this.createFilter.button();
+        this.createFilter.getElemetsForFilters();
         return this.container;
 
     }

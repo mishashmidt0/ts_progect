@@ -1,3 +1,14 @@
+export type Toy = {
+    num: string, //number
+    name: string,
+    count: string, //number
+    year: string,   //number
+    shape: string,
+    color: string,
+    size: string,
+    favorite: boolean,
+}
+
 export enum Shape {
     Ball = 'шар',
     Figurine = 'фигурка',
@@ -5,17 +16,15 @@ export enum Shape {
     Cone = 'шишка',
     Snowflake = 'снежинка',
 }
-const a: Toy = {
-    shape: 'шар' as Shape
+export enum Size {
+    Big = 'большой',
+    Average = 'средний',
+    Small = 'малый',
 }
-// add enum -size -color
-export type Toy = {
-    num: string, //number
-    name: string,
-    count: string, //number
-    year: string,   //number
-    shape: Shape,
-    color: string,
-    size: string,
-    favorite: boolean,
+export enum Color {
+    White = 'белый',
+    Yellow = 'желтый',
+    Red = 'красный',
+    Blue = 'синий',
+    Green = 'зеленый',
 }

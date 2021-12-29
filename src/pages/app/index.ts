@@ -67,7 +67,7 @@ class App {
         App.container.prepend(this.header.render());
         App.container.append(this.footer.render());
         this.enableRouteChange();
-        return this.createFilter.button();
+        return this.createFilter.getElemetsForFilters();
     }
 };
 
